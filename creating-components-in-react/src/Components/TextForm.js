@@ -15,7 +15,7 @@ export default function TextForm(props) {
     }
     const HandleClear=()=>{
         let newText=" ";
-        setText(newText);
+        setText(newText.trim());
         props.showAlert("Text has been cleared","success");
          
     }  
@@ -54,7 +54,7 @@ export default function TextForm(props) {
     </div>
     <div className="container" style={{color: props.mode==="dark"?"white":"#042743"}} >
         <h2> Your text contains </h2>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.length=== 0 ? 0 : text.trim().split(" ").length} words and {text.replace(/\s+/g, '').length} characters</p>        
         <p> {0.008 *text.split(" ").length } minutes to read</p> 
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter any text to preview"}</p>
